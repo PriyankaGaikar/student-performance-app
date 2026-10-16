@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account - Student Performance Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🎓 Student Performance Predictor</h1>
+    <p>Create a free account to get started.</p>
+  </header>
+
+  <main class="container auth">
+    <section class="card">
+      <h2>Create account</h2>
+
+      <form method="post" action="{{ url_for('register') }}">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" value="{{ form.name }}"
+                 placeholder="Your name" autocomplete="name" required autofocus>
+          {% if errors.name %}<span class="error">{{ errors.name }}</span>{% endif %}
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" value="{{ form.email }}"
+                 placeholder="you@example.com" autocomplete="email" required>
+          {% if errors.email %}<span class="error">{{ errors.email }}</span>{% endif %}
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password"
+                 placeholder="Create a password" autocomplete="new-password" required>
+          <small>At least 8 characters, with a letter and a number</small>
+          {% if errors.password %}<span class="error">{{ errors.password }}</span>{% endif %}
+        </div>
+
+        <div class="field">
+          <label for="confirm">Confirm password</label>
+          <input type="password" id="confirm" name="confirm"
+                 placeholder="Type it again" autocomplete="new-password" required>
+          {% if errors.confirm %}<span class="error">{{ errors.confirm }}</span>{% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-block">Create account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </section>
+  </main>
+
+</body>
+</html>

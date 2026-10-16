@@ -1,0 +1,27 @@
+{
+  "best_model": "Linear Regression",
+  "results": {
+    "Linear Regression": {
+      "MAE": 0.856,
+      "RMSE": 1.087,
+      "R2": 0.656,
+      "CV_R2": 0.662
+    },
+    "Random Forest": {
+      "MAE": 1.048,
+      "RMSE": 1.272,
+      "R2": 0.529,
+      "CV_R2": 0.605
+    }
+  },
+  "features": [
+    "Gender",
+    "Department",
+    "Attendance_Pct",
+    "Study_Hours",
+    "Previous_Score",
+    "Assignments_Completed"
+  ],
+  "train_rows": 400,
+  "test_rows": 100
+}

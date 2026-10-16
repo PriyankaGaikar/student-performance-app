@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in - Student Performance Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🎓 Student Performance Predictor</h1>
+    <p>Log in to predict grades and get study tips.</p>
+  </header>
+
+  <main class="container auth">
+    <section class="card">
+      <h2>Log in</h2>
+
+      {% for message in get_flashed_messages() %}
+      <div class="form-success">{{ message }}</div>
+      {% endfor %}
+
+      {% if error %}
+      <div class="form-error" role="alert">{{ error }}</div>
+      {% endif %}
+
+      <form method="post" action="{{ url_for('login') }}">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" value="{{ email }}"
+                 placeholder="you@example.com" autocomplete="email" required autofocus>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password"
+                 placeholder="Your password" autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" class="btn btn-block">Log in</button>
+      </form>
+
+      <p class="auth-switch">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+    </section>
+  </main>
+
+</body>
+</html>
